@@ -1,76 +1,54 @@
-NAME = libft.a
-HEADER = libft.h
-FLAGS = -Wall -Wextra -Werror
-CC = cc
-AR = ar rcs
-SRC = ft_isalpha.c	\
-	ft_isalnum.c	\
-	ft_isdigit.c	\
-	ft_isascii.c	\
-	ft_isprint.c	\
-	ft_strlen.c	\
-	ft_memset.c	\
-	ft_bzero.c	\
-	ft_memcpy.c	\
-	ft_strlcpy.c	\
-	ft_strlcat.c	\
-	ft_toupper.c	\
-	ft_tolower.c	\
-	ft_strchr.c	\
-	ft_strrchr.c	\
-	ft_strncmp.c	\
-	ft_memchr.c	\
-	ft_memcmp.c	\
-	ft_strnstr.c	\
-	ft_atoi.c 	\
-	ft_calloc.c	\
-	ft_strdup.c	\
-	ft_memmove.c 	\
-	ft_substr.c	\
-	ft_strjoin.c	\
-	ft_strtrim.c	\
-	ft_split.c	\
-	ft_itoa.c	\
-	ft_strmapi.c	\
-	ft_striteri.c	\
-	ft_putchar_fd.c	\
-	ft_putstr_fd.c	\
-	ft_putendl_fd.c	\
-	ft_putnbr_fd.c	\
+# Project #
+NAME		=	libft.a
 
-OBJ = ${SRC:.c=.o}
+# Compiler #
+CC			=	cc
+CC_FLAGS	=	#-Wall -Wextra -Werror
+RM			=	rm -rf
 
-SRC_BONUS = ft_lstnew.c		\
-		ft_lstadd_front.c	\
-		ft_lstsize.c	\
-		ft_lstlast.c	\
-		ft_lstadd_back.c	\
-		ft_lstdelone.c		\
-		ft_lstclear.c		\
-		ft_lstiter.c		\
-		ft_lstmap.c		\
+# Objects #
+OBJ_DIR		=	.objFiles
 
-OBJ_BONUS = ${SRC_BONUS:.c=.o}
+# Files #
+SRC_DIR		=	srcs
+INC_DIR		=	includes
 
-all: ${NAME}
 
-${NAME} : ${OBJ}
-	${AR} $@ $^
+SRC_FILES	:=	$(shell find $(SRC_DIR) -name "*.c")
+OBJ_FILES	:=	$(patsubst $(SRC_DIR)/%.c,$(OBJ_DIR)/%.o,$(SRC_FILES))
+INC_FILES	:=	$(wildcard $(INC_DIR)/*.h)
 
-clean :
-	rm -f ${OBJ} ${OBJ_BONUS}
+#Colors:
+GREEN		=	\e[92;5;118m
+YELLOW		=	\e[93;5;226m
+RESET		=	\e[0m
 
-fclean : clean
-	rm -f ${NAME}
+# Progress bar variables
+TOTAL		:=	$(words $(SRC_FILES))
+COUNT		:=	0
 
-re : fclean all
+.PHONY: all clean fclean re
 
-bonus : ${OBJ_BONUS}
-	${AR} ${NAME} $^
+# Rules #
+all: $(NAME)
 
-reb : fclean bonus
+$(NAME): $(OBJ_FILES) $(INC_FILES)
+	@$(CC) $(OBJ_FILES) -I $(INC_DIR) -o $(NAME)
+	@printf "\n\n$(GREEN)	- Executable ready.\n$(RESET)"
 
-.o .c:
-	${CC} ${FLAGS} ${OBJ}
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c $(INC_FILES)
+	@mkdir -p $(dir $@)
+	@$(CC) $(CC_FLAGS) -I $(INC_DIR) -c $< -o $@
+	@$(eval COUNT=$(shell expr $(COUNT) + 1))
+	@$(eval PERCENT=$(shell expr $(COUNT) \* 100 / $(TOTAL)))
+	@printf "$(GREEN)	- Compiling: [%-0s] %d%%$(RESET)\r" "$$(printf '▉%.0s' $$(seq 1 $$(expr $(PERCENT) \* 50 / 100)))" $(PERCENT)
 
-.PHONY : all, clean, fclean, reMAKE
+clean:
+	@$(RM) $(OBJ_DIR)
+	@printf "$(YELLOW)	- Object files removed.\n$(RESET)"
+
+fclean: clean
+	@$(RM) $(NAME)
+	@printf "$(YELLOW)	- Executable removed.\n\n$(RESET)"
+
+re: fclean all
