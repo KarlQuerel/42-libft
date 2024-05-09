@@ -85,6 +85,6 @@ int main()
 - `ft_lstiter`
 - `ft_lstmap`
 ---
-For a full list of functions available in the `libft` library and their usage, refer to the [libft.h](../42-libft/includes/libft.h) header file.
+For a full list of functions available in the `libft` library and their usage, refer to the [libft.h](https://github.com/KarlQuerel/42-libft/blob/master/includes/libft.h) header file.
 
 [Back to Top](#top)
