@@ -5,14 +5,14 @@ Libft is a project at School 42 aimed at creating a library of useful functions 
 
 ## Table of Contents
 - [About](#about)
-- [Getting Started](#getting-started)
+- [Installation](#installation)
 - [Usage](#usage)
 - [Available Functions](#available-functions)
 
 ## About
 In this project, students are tasked with re-implementing several standard C library functions, as well as creating additional functions that may be useful in future projects. By building this library, students gain a deeper understanding of how these functions work and improve programming skills.
 
-## Getting Started
+## Installation
 To get started with using the `libft` library in your projects, follow these steps:
 
 1. Clone this repository to your local machine using `git clone`.
