@@ -10,7 +10,7 @@ Libft is a project at School 42 aimed at creating a library of useful functions 
 - [Available Functions](#available-functions)
 
 ## About
-In this project, you are tasked with re-implementing several standard C library functions, as well as creating additional functions that may be useful in your future projects. By building this library, you'll gain a deeper understanding of how these functions work and improve your programming skills.
+In this project, students are tasked with re-implementing several standard C library functions, as well as creating additional functions that may be useful in future projects. By building this library, students gain a deeper understanding of how these functions work and improve programming skills.
 
 ## Getting Started
 To get started with using the `libft` library in your projects, follow these steps:
