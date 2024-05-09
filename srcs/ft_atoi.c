@@ -6,11 +6,11 @@
 /*   By: karl <karl@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 19:11:30 by kquerel           #+#    #+#             */
-/*   Updated: 2024/05/09 10:50:52 by karl             ###   ########.fr       */
+/*   Updated: 2024/05/09 11:44:02 by karl             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "includes/libft.h"
+#include "../includes/libft.h"
 
 int	ft_atoi(const char *nptr)
 {

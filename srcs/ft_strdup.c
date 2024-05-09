@@ -6,11 +6,11 @@
 /*   By: karl <karl@student.42.fr>                  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 16:43:29 by kquerel           #+#    #+#             */
-/*   Updated: 2024/05/09 11:17:44 by karl             ###   ########.fr       */
+/*   Updated: 2024/05/09 11:44:02 by karl             ###   ########.fr       */
 /*                                                                            */
 /******************************************************************************/
 
-#include "includes/libft.h"
+#include "../includes/libft.h"
 
 char	*ft_strdup(const char *s)
 {
