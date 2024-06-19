@@ -13,9 +13,20 @@ Libft is a project at School 42 aimed at creating a library of useful functions 
 In this project, students are tasked with re-implementing several standard C library functions, as well as creating additional functions that may be useful in future projects. By building this library, students gain a deeper understanding of how these functions work and improve programming skills.
 
 ## Installation
-1. Clone this repository.
-2. Navigate to the root directory of the project.
-3. Compile the library using `make`.
+1. Clone this repository to your local machine:
+	```sh
+	git clone https://github.com/KarlQuerel/42-libft.git
+	```
+
+2. Navigate to the project directory:
+	```sh
+	cd libft
+	```
+
+3. Compile the project using `make`:
+	```sh
+	make
+	```
 4. Include the `libft.h` header file in your C source files.
 
 ## Usage
