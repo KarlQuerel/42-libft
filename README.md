@@ -20,7 +20,7 @@ In this project, students are tasked with re-implementing several standard C lib
 
 2. Navigate to the project directory:
 	```sh
-	cd libft
+	cd 42-libft
 	```
 
 3. Compile the project using `make`:
